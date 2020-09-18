@@ -15,16 +15,20 @@ let personaMovieDB = {
 	privat: false
 }
 
+let checkCount = (personaMovieDB.count < 10) ? alert('Просмотрено довольно мало фильмов') : 
+   (personaMovieDB.count >= 10 && personaMovieDB.count <= 30) ? alert('Вы классический зритель') :
+   (personaMovieDB.count > 30) ? alert('Вы киноман') :
+   alert ('Произошла ошибка');
+
 
 /* 3 */
-let movies = {};
 
-let a = prompt('Один из последних фильмов?', '');
-let b = prompt('На сколько оцените его?', '');
-let c = prompt('Один из последних фильмов?', '');
-let d = prompt('На сколько оцените его?', '');
+for (var i = 0; i < 2; i++) {
+	let a = prompt('Один из последних фильмов?', ''),
+	    b = prompt('На сколько оцените его?', '');
+	if ((a || b !== '') && (a || b !== null) && (a.length < 50)) {
+		personaMovieDB.movies[a] = b;
+	} else i--;
+}
 
-personaMovieDB.movies[a] = b;
-personaMovieDB.movies[c] = d;
-
-console.log(personaMovieDB)
+console.log(personaMovieDB.movies)
